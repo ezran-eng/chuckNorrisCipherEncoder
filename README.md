@@ -1,11 +1,25 @@
 # Description
-To begin with, you will learn how to divide an encrypted message into the characters that it contains. You will need this for further work.
+In this stage, you will write a decoder for a cipher. You need to transform the encrypted message into its original format.
 
 # Objetives
+Your program receives a string of zeros and spaces and converts it to readable text. You must parse the string to the blocks of zeroes and decode the message the same way as in previous stages but in reversed order.
+
+For example, your program receives 0 0 00 0000 0 000 00 0000 0 00. You can split blocks of zeros and group those blocks by two. Then you need to decode these blocks like in the previous stage:
+
+0 0 is 1
+00 0000 is 0000
+0 000 is 111
+00 0000 is 0000
+0 00 is 11
+Concatenation of the lines above gives us 10000111000011.
+
+After that, you need to split the result into blocks of seven symbols (binary form) and convert these blocks to characters. In this case, splitting 10000111000011 by seven symbols gives us two characters — 1000011 1000011 , convert them into characters and the result will be CC (C is 1000011).
+
 In this stage, your program should:
 
-Read a string from a console. The input contains a single line.
-Output all characters in the string, separated by one space (including the space characters themselves).
+Read a string from a console. The input contains a single line of spaces and 0 characters.
+Print The result: line, followed by a line with a decoded message.
+The Integer.parseInt() method might be useful at this stage.
 
 # Examples
 The greater-than symbol followed by a space (> ) represents the user input. Note that it's not part of the input.
@@ -13,13 +27,15 @@ The greater-than symbol followed by a space (> ) represents the user input. Note
 ````
 Example 1:
 
-Input string:
-> Greetings!
+Input encoded string:
+> 0 0 00 0000 0 000 00 0000 0 00
 
-G r e e t i n g s !
+The result:
+CC
 Example 2:
 
-Input string:
-> Who am I?
+Input encoded string:
+> 0 0 00 00 0 0 00 000 0 00 00 0 0 0 00 00 0 0 00 0 0 0 00 000000 0 0000 00 000 0 00 00 00 0 00
 
-W h o   a m   I ? 
+The result:
+Hi <3
