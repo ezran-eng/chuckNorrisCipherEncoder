@@ -13,7 +13,7 @@ The program should be looped to terminate only if the user inputs exit as an ope
 
 Also, let's prevent some incorrect input.
 
-If the user misspells the operation name, the program should print out There is no '<input>' operation
+If the user misspells the operation name, the program should print out There is no < input > operation
 If the user provided an incorrect encoded message as input to decode, the program should print out appropriate feedback containing not valid substring
 List of not valid encoded messages:
 
