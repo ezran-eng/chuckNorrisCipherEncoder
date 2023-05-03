@@ -1,11 +1,27 @@
 # Description
-To begin with, you will learn how to divide an encrypted message into the characters that it contains. You will need this for further work.
+Binary with 0 and 1 is good, but binary with only 0 is even better! This encoding has a name — the Chuck Norris Unary Code.
+
+Let's convert our text into a sequence of zeros and spaces!
 
 # Objetives
+The encoding principle is simple. The input message consists of ASCII characters (7-bit). You need to transform the text into the sequence of 0 and 1 and use the Chuck Norris technique. The encoded output message consists of blocks of 0. A block is separated from another block by a space.
+
+Two consecutive blocks are used to produce a series of the same value bits (only 1 or0 values):
+
+First block: it is always 0 or 00. If it is 0, then the series contains 1, if not, it contains 0
+Second block: the number of 0 in this block is the number of bits in the series
+Let's take a simple example with a message which consists of only one character C. The C symbol in binary is represented as 1000011, so with Chuck Norris technique this gives:
+
+0 0 (the first series consists of only a single 1);
+00 0000 (the second series consists of four 0);
+0 00 (the third consists of two 1)
+So C is coded as: 0 0 00 0000 0 00
+Make sure, that an encoding of a single character sequence is not separated. For example, 000 should be encoded as 00 000 and not as 00 0 00 0 00 0 or 00 0 00 00 or 00 00 00 0
+
 In this stage, your program should:
 
 Read a string from a console. The input contains a single line.
-Output all characters in the string, separated by one space (including the space characters themselves).
+Print The result: line, followed by a line with an encoded message.
 
 # Examples
 The greater-than symbol followed by a space (> ) represents the user input. Note that it's not part of the input.
@@ -14,12 +30,21 @@ The greater-than symbol followed by a space (> ) represents the user input. Note
 Example 1:
 
 Input string:
-> Greetings!
+> C
 
-G r e e t i n g s !
+The result:
+0 0 00 0000 0 00
 Example 2:
 
 Input string:
-> Who am I?
+> CC
 
-W h o   a m   I ? 
+The result:
+0 0 00 0000 0 000 00 0000 0 00
+Example 3:
+
+Input string:
+> Hi <3
+
+The result:
+0 0 00 00 0 0 00 000 0 00 00 0 0 0 00 00 0 0 00 0 0 0 00 000000 0 0000 00 000 0 00 00 00 0 00
